@@ -1,0 +1,9 @@
+runtime: nodejs16
+
+instance_class: F1
+
+env_variables:
+  NODE_ENV: "production"
+
+automatic_scaling:
+  max_concurrent_requests: 30

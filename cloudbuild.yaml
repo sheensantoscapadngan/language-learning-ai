@@ -1,0 +1,16 @@
+steps:
+  - name: node
+    entrypoint: npm
+    args: ['install']
+
+  - name: node
+    entrypoint: npm
+    args: ['run', 'build', 'web']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', 'app.yaml']
+    dir: 'dist/apps/web'
+
+timeout: 1800s
+options:
+  logging: CLOUD_LOGGING_ONLY
